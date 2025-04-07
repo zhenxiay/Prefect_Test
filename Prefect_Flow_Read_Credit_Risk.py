@@ -30,7 +30,7 @@ def ingest_data(data, db_name):
                  if_exists="replace"
                  )
     
-    return 'Ingested rows: len(data)'
+    return f'Ingested rows: {len(data)}'
 
 
 # Run the flow
