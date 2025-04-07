@@ -7,6 +7,7 @@ def ingest_credit_risk(path: str, db_name: str):
     """Flow: Show results of the data ingested"""
     # Call Task 1
     data = fetch_data(path)
+    print(f"{len(data)} read from {path}")
 
     # Call Task 2
     result_data_ingestion = ingest_data(data, db_name)
