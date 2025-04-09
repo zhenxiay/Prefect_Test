@@ -16,12 +16,15 @@ def ingest_stock_data(db_name: str, stock_list: list[str]):
     # Print the result
     print(f"{result_data_ingestion}")
 
-
 @task
 def fetch_data(stock_list: list[str]):
     """Task 1: Fetch the data from a stock intelligence library"""
-    return create_combined_dataset(stock_list)
-
+    porfolio = LoadMultiStockData(stock_list, 
+                                  '2y', 
+                                  'project', 
+                                  'dataset')
+    
+    return porfolio.create_combined_dataset(stock_list)
 
 @task
 def ingest_data(data, db_name):
