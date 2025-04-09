@@ -6,7 +6,7 @@ SOURCE_REPO="https://github.com/zhenxiay/Prefect_Test.git"
 if __name__ == "__main__":
     flow.from_source(
         source=SOURCE_REPO,
-        entrypoint="Test_data_ingestion_stock_intelligence.py:ingest_stock_data",
+        entrypoint="Flow/Test_data_ingestion_stock_intelligence.py:ingest_stock_data",
     ).deploy(
         name="deployment-stock-intelligence",
         parameters={
