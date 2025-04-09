@@ -1,13 +1,14 @@
 {
-  "name": "my-remote-deployment",
+  "name": "test-deployment-rest",
   "work_pool_name": "data-ingestion-wp",
   "flow_id": "9e5d8a50-dfff-4878-95ec-8b86277e38e6",
-  "path": "https://github.com/zhenxiay/Prefect_Test.git",
-  "entrypoint": "Prefect_Flow_Read_Credit_Risk.py:ingest_credit_risk",
+  "pull_steps":[{"prefect.deployments.steps.git_clone":{"repository":"https://github.com/zhenxiay/Prefect_Test.git","branch":"main"}}],
+  "parameter_openapi_schema":{"title":"Parameters","type":"object","properties":{"path":{"position":0,"title":"path","type":"string"},"db_name":{"position":1,"title":"db_name","type":"string"}},"required":["path","db_name"]},
   "parameters": {
             "path": "https://raw.githubusercontent.com/PacktPublishing/Python-for-Finance-Cookbook/master/Datasets/credit_card_default.csv",
-            "db_name": "credit_risk_db"
+            "db_name": "C:/Users/yuz1ka/downloads/credit_risk_db"
   },
+  "entrypoint": "Prefect_Flow_Read_Credit_Risk.py:ingest_credit_risk",
   "tags": ["remote", "git"],
   "description": "Deploy a data ingestion flow"
 }
