@@ -32,7 +32,7 @@ def fetch_data(stock_list: list[str], project: str):
 def ingest_data(portfolio, stock_list: list[str], table_name: str):
     """Task 2: Write data into big query"""
     
-    portfolio.load_multi_stock_data_to_big_query(stock_list, table_name)
+    portfolio.load_multi_stock_data_to_big_query(table_name)
     
     return f'Ingested stock data: {stock_list} into {table_name}'
 
@@ -43,7 +43,6 @@ if __name__ == "__main__":
                     'portfolio_analysis',
                      [
                      "MSFT",
-                     "NVDA",
                      "ASML"
                      ],
                      'keen-vial-420113'
