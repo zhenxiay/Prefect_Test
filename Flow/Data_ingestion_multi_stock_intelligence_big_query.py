@@ -1,6 +1,7 @@
 from StockIntelligence.load_multi_stock_data import LoadMultiStockData
 from prefect import flow, task
 from curl_cffi import requests
+import yfinance as yf
 
 # session setting to avoid rate limit error from yfinance
 ticker = yf.Ticker('...', session=session)
