@@ -4,8 +4,8 @@ from curl_cffi import requests
 import yfinance as yf
 
 # session setting to avoid rate limit error from yfinance
-ticker = yf.Ticker('...', session=session)
 session = requests.Session(impersonate="chrome")
+ticker = yf.Ticker('...', session=session)
 
 @flow(log_prints=True)
 def ingest_stock_data(table_name: str, stock_list: list[str], project: str):
