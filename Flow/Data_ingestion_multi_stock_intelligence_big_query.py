@@ -1,5 +1,10 @@
 from StockIntelligence.load_multi_stock_data import LoadMultiStockData
 from prefect import flow, task
+from curl_cffi import requests
+
+# session setting to avoid rate limit error from yfinance
+ticker = yf.Ticker('...', session=session)
+session = requests.Session(impersonate="chrome")
 
 @flow(log_prints=True)
 def ingest_stock_data(table_name: str, stock_list: list[str], project: str):
